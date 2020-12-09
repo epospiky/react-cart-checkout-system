@@ -11,12 +11,11 @@ function App() {
   
   return (
     <div className="App">
-      <div className="grid grid-cols-4 gap-8">
+      <ul className="w-full px-8">
       {
-       items.map(item => (<ul><ItemsList key={item.id}  item={item}/></ul>)  )
-     }
-      </div>
-  
+       items.map(item => (<ItemsList key={item.id}  item={item}/>)  )
+      }
+      </ul>  
     </div>
   );
 }
