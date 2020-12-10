@@ -1,23 +1,27 @@
-
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState, useContext } from 'react';
+import {BrowserRouter as Router, Switch, Route} from  'react-router-dom';
 import ItemsList from './components/ItemsList';
+import {GlobalProvider} from './context/GlobalState';
+import Cart from './components/Cart';
+import Header from './components/Header';
 
 function App() {     
-  const [items, setItems] = useState([]);
-
-  const req =  fetch(`https://fakestoreapi.com/products`).then(res=>res.json());
-  req.then((data) => {setItems(data)})
-  
   return (
-    <div className="App">
-      <ul className="w-full px-8">
-      {
-       items.map(item => (<ItemsList key={item.id}  item={item}/>)  )
-      }
-      </ul>  
-    </div>
+   <GlobalProvider>
+     <Router>
+       <Header/>
+
+       <Switch>
+          <Route exact path="/">
+            <ItemsList />
+          </Route>
+          <Route path ="/cart">
+            <Cart/>
+          </Route>
+       </Switch>
+     </Router>
+    </GlobalProvider>
+   
   );
 }
-
 export default App;
