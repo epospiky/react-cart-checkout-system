@@ -4,7 +4,18 @@
         return {
             ...state,
             cart:[action.payload, ...state.cart],
-        }
+        };
+        case "REMOVE_FROM_CART":
+            return {
+                ...state,
+                cart:state.cart.filter(item => item.id !== action.payload),
+            }
+            case "CLEAR_CART":
+                return {
+                    ...state,
+                    cart:state.cart.pop()
+                }
+            
         default:
             return state;
     }

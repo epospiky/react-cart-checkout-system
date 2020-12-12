@@ -4,13 +4,17 @@ import {GlobalContext} from '../context/GlobalState';
 const Cart = () => {
     const [options, setOptions] = useState();
 
-    const {cart} = useContext(GlobalContext);
+    const {cart, removeItem, clearCart} = useContext(GlobalContext);
     return (
-        <div className="flex justify-center px-20">
+        <div className=" px-20">
+            <div className="block">
+                <span>Items in cart</span>
+                <button type="button" className="bg-gray-600 px-4 py-2" onClick={()=>clearCart}>Clear</button>
+            </div>
             <table className="min-w-full table-auto">
               <thead className="justify-between">
                   <tr className="bg-gray-800 text-gray-300">
-                      <th className="px-16 py-2">Item</th>
+                      <th className="px-16 py-2 text-left">Item</th>
                       <th className="px-16 py-2">Quantity</th>
                       <th className="px-16 py-2">Unit Price</th>
                       <th className="px-16 py-2">Subtotal</th>
@@ -33,7 +37,8 @@ const Cart = () => {
                           }} */}
                       </td>
                       <td className="text-center py-8">
-                      <select value={options} onChange={(e)=>setOptions(e.target.value)}>
+                      {/* <input type="number" value={options} onChange={(e)=>setOptions(e.target.value)}/> */}
+                       <select value={options} onChange={(e)=>setOptions(e.target.value)}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -44,10 +49,11 @@ const Cart = () => {
                         <option value="8">8</option>
                         <option value="9">9</option>
                         <option value="10">10</option>
-                    </select>
+                      </select> 
                       </td>
                       <td className="text-center py-8">{cartItem.price}</td>
                         <td className="text-center py-8">{options * cartItem.price}</td>
+                        <td><button type="button" className="bg-gray-600 px-4 py-2" onClick={()=>removeItem(cartItem.id)}>Remove</button></td>
                   </tr>
             ))}
               </tbody>
