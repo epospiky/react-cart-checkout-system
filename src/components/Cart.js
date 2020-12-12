@@ -5,12 +5,14 @@ const Cart = () => {
     const [options, setOptions] = useState();
 
     const {cart, removeItem, clearCart} = useContext(GlobalContext);
+    const itemCount = cart.length > 1? ' items': ' item'
     return (
-        <div className=" px-20">
-            <div className="block">
-                <span>Items in cart</span>
-                <button type="button" className="bg-gray-600 px-4 py-2" onClick={()=>clearCart}>Clear</button>
+        <div className="relative px-20">
+            <div className="relative block float-right mb-4">
+                <span>{cart.length}{itemCount} in cart  </span>
+                <button type="button" className="bg-gray-400 px-4 py-2" onClick={()=>{clearCart()}}>Clear</button>
             </div>
+            <div className="clear-float"></div>
             <table className="min-w-full table-auto">
               <thead className="justify-between">
                   <tr className="bg-gray-800 text-gray-300">
@@ -18,10 +20,12 @@ const Cart = () => {
                       <th className="px-16 py-2">Quantity</th>
                       <th className="px-16 py-2">Unit Price</th>
                       <th className="px-16 py-2">Subtotal</th>
+                      <th className="px-16 py-2">Action</th>
                   </tr>
               </thead>
               <tbody class="bg-gray-200">
-                {cart.map(cartItem =>(
+                  {cart.length > 0?
+                cart.map(cartItem =>(
                   <tr key={cartItem.id} class="bg-white border-4 border-gray-200 ">
                       <td className="py-8 h-full">
                           <span className="h-full inline-block">
@@ -53,9 +57,9 @@ const Cart = () => {
                       </td>
                       <td className="text-center py-8">{cartItem.price}</td>
                         <td className="text-center py-8">{options * cartItem.price}</td>
-                        <td><button type="button" className="bg-gray-600 px-4 py-2" onClick={()=>removeItem(cartItem.id)}>Remove</button></td>
+                        <td className="text-center"><button type="button" className="bg-gray-200 px-4 py-2 hover:bg-gray-300" onClick={()=>removeItem(cartItem.id)}><span className="fa fa-trash"></span> Remove</button></td>
                   </tr>
-            ))}
+            )):(<tr><td colSpan={5}><h1 className="bg-white text-xl text-gray-500 font-semibold text-center pt-8"> No items in cart!</h1></td></tr>)}
               </tbody>
             </table>
 

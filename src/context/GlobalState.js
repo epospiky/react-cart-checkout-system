@@ -19,8 +19,8 @@ export const GlobalProvider = ({children}) =>{
     const addToCart = item=>{
        dispatch({type:"ADD_TO_CART", payload:item})
    };
-   const clearCart = item=>{
-    dispatch({type:"CLEAR_CART", payload:item})
+   const clearCart = ()=>{
+    dispatch({type:"CLEAR_CART"})
 }
     return (
         <GlobalContext.Provider value={{cart: state.cart, addToCart,removeItem, clearCart}}>
