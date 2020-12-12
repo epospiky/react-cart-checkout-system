@@ -20,7 +20,7 @@ const ItemsList = ({item}) => {
   const {addToCart, cart} = useContext(GlobalContext);
     
     return (
-        <div className="App">
+        <div style={{fontFamily: "'Montserrat', 'sans-serif'"}} className="App">
         <ul className="w-full px-8">
         {
             

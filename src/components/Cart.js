@@ -7,31 +7,32 @@ const Cart = () => {
     const {cart, removeItem, clearCart} = useContext(GlobalContext);
     const itemCount = cart.length > 1? ' items': ' item'
     return (
-        <div className="relative px-20 ">
+        <div style={{fontFamily: "'Montserrat', 'sans-serif'"}} className="relative px-20 ">
             <div className="relative block float-right mb-4">
-                <span>{cart.length}{itemCount} in cart  </span>
-                <button type="button" className="bg-gray-400 px-4 py-2" onClick={()=>{clearCart()}}>Clear</button>
+                <span className="font-bold">{cart.length}{itemCount} in cart  </span>
+                <button type="button" className="bg-gray-400 px-4 py-2" onClick={()=>{clearCart()}}>X Clear</button>
             </div>
             <div className="clear-float"></div>
             <table className="min-w-full table-auto">
               <thead className="justify-between">
                   <tr className="bg-gray-800 text-gray-300">
-                      <th className="px-16 py-2 text-left">Item</th>
-                      <th className="px-16 py-2">Quantity</th>
-                      <th className="px-16 py-2">Unit Price</th>
-                      <th className="px-16 py-2">Subtotal</th>
-                      <th className="px-16 py-2">Action</th>
+                      <th className="px-16 py-4 text-left">Item</th>
+                      <th className="px-12 py-4">Quantity</th>
+                      <th className="px-12 py-4 whitespace-nowrap">Unit Price</th>
+                      <th className="px-12 py-4">Subtotal</th>
+                      <th className="px-12 py-4">Action</th>
                   </tr>
               </thead>
               <tbody class="bg-gray-200">
                   {cart.length > 0?
                 cart.map(cartItem =>(
                   <tr key={cartItem.id} class="bg-white border-4 border-gray-200 ">
-                      <td className="py-8 h-full">
-                          <span className="h-full inline-block">
-                              <img className="h-52 w-auto" src={cartItem.image}/>
+                      <td className="py-8 h-full inline-block grid grid-cols-2 gap-0">
+                          <span className="w-full text-center">
+                              <img className="h-48 w-auto text-center " src={cartItem.image}/>
                           </span>
-                          {(<span>{cartItem.title}</span>)
+                           <span className="w-full text-left">
+                           {(<span className="block text-base text-left font-semibold">{cartItem.title}</span>)
                           /* ()=>{ const itemTitle = cartItem.title
                           console.log('itemTitle');
                           if (itemTitle.length > 100) {
@@ -39,6 +40,8 @@ const Cart = () => {
                           } else {
                               return (<span>{cartItem.title}</span>)
                           }} */}
+                          <span className="text-sm text-left">{cartItem.description}</span>
+                          </span> 
                       </td>
                       <td className="text-center py-8">
                       {/* <input type="number" value={options} onChange={(e)=>setOptions(e.target.value)}/> */}

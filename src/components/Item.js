@@ -15,11 +15,11 @@ const Item = ({item}) => {
                         <img src={item.image} alt={item.title} className="h-full w-full"/>
                     </span>
                     <span className="block h-1/3">
-                        <h4 className="text-lg text-gray-700">{item.title}</h4>
-                        <span className="block text-gray-600">{shortDesc}</span>
+                        <h4 className="text-base tracking-wider font-semibold text-gray-700">{item.title}</h4>
+                        <span className="block text-sm tracking-wider leading-relaxed text-gray-600">{shortDesc}</span>
 
-                        <span className="px-4 inline-block flex justify-between">
-                            <span className="inline-block text-xl font-bold">${item.price}</span>
+                        <span className=" text-sm px-4 inline-block flex justify-between">
+                            <span className="inline-block mt-auto text-xl font-bold">${item.price}</span>
                             <button disabled={disableButton}  style={disableButtonStyle} onClick={() =>addToCart(item)} className="disabled:opacity-50 py-2 px-3 bg-green-400 inline-block rounded-md focus:outline-none focus:border-none" type="button">Add to cart</button>
                         </span>
                     </span> 
