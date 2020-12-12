@@ -7,7 +7,7 @@ const Cart = () => {
     const {cart, removeItem, clearCart} = useContext(GlobalContext);
     const itemCount = cart.length > 1? ' items': ' item'
     return (
-        <div className="relative px-20">
+        <div className="relative px-20 ">
             <div className="relative block float-right mb-4">
                 <span>{cart.length}{itemCount} in cart  </span>
                 <button type="button" className="bg-gray-400 px-4 py-2" onClick={()=>{clearCart()}}>Clear</button>
