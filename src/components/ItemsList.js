@@ -15,16 +15,18 @@ const ItemsList = ({item}) => {
       }
     })
     }, [])
-
-    
-  const {addToCart, cart} = useContext(GlobalContext);
-    
+/* 
+   const shuffle = (array) => {
+      array.sort(() => Math.random() - 0.5);
+    } */
+//  const {addToCart, cart} = useContext(GlobalContext);
+    console.log(items)
     return (
         <div style={{fontFamily: "'Montserrat', 'sans-serif'"}} className="App">
         <ul className="w-full px-8">
         {
             
-           items.map(item=>( <Item key={item.id} item={item}  />))
+            items.map(item=>( <Item key={item.id} item={item}  />))
 
           } 
         </ul>  

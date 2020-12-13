@@ -19,7 +19,7 @@ function App() {
           <Route path ="/cart">
             <Cart/>
           </Route>
-{/*           <Route path="/checkout">
+        {/*  <Route path="/checkout">
               <Checkout/>
           </Route> */}
        </Switch>
