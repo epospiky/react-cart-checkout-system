@@ -1,5 +1,6 @@
 import React, {useState,useEffect, useContext} from 'react';
 import {GlobalContext} from '../context/GlobalState';
+import Category from './Category';
 import Item from './Item';
 
 const ItemsList = ({item}) => {
@@ -22,7 +23,8 @@ const ItemsList = ({item}) => {
 //  const {addToCart, cart} = useContext(GlobalContext);
     console.log(items)
     return (
-        <div style={{fontFamily: "'Montserrat', 'sans-serif'"}} className="App">
+        <div style={{fontFamily: "'Montserrat', 'sans-serif'"}} className="app">
+          <Category />
         <ul className="w-full px-8">
         {
             
