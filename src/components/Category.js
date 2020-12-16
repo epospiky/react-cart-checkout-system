@@ -14,7 +14,7 @@ const Category = ({checkId}) => {
                 <li id="men clothing" onClick={handleCategory, checkId} className="pl-4 py-1 hover:bg-gray-100 cursor-pointer">Men Clothing</li>
                 <li id="electronics" onClick={handleCategory, checkId} className="pl-4 py-1 hover:bg-gray-100 cursor-pointer">Electronics</li>
                 <li id="jewelery" onClick={handleCategory, checkId} className="pl-4 py-1 hover:bg-gray-100 cursor-pointer">Jewelery</li>
-                <li id="women Clothing" onClick={handleCategory,checkId} className="pl-4 py-1 hover:bg-gray-100 cursor-pointer">Women Clothing</li>
+                <li id="women clothing" onClick={handleCategory,checkId} className="pl-4 py-1 hover:bg-gray-100 cursor-pointer">Women Clothing</li>
             </ul>
         </div>
     )
