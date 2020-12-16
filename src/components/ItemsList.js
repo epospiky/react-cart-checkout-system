@@ -21,15 +21,20 @@ const ItemsList = ({item}) => {
       array.sort(() => Math.random() - 0.5);
     } */
 //  const {addToCart, cart} = useContext(GlobalContext);
-    console.log(items)
+        console.log(items)
+        
+        const checkId = (e)=>{
+         const gottenId = e.target.id   
+         //console.log(gottenId)
+        }
+        console.log(checkId.gottenId)
+        const filtered = items.filter(item => item.category === `${checkId.gottenId}`)
     return (
         <div style={{fontFamily: "'Montserrat', 'sans-serif'"}} className="app">
-          <Category />
+          <Category checkId={checkId}/>
         <ul className="w-full px-8">
         {
-            
-            items.map(item=>( <Item key={item.id} item={item}  />))
-
+            items?filtered.map(item=>( <Item key={item.id} item={item}  />)) : ""
           } 
         </ul>  
       </div>

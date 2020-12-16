@@ -9,6 +9,7 @@ const Item = ({item}) => {
     const disableButtonStyle = addedToCart? {opacity:"0.3", color:"red", cursor:"not-allowed", fontFamily: "Arial"}: {};
     //const disabledStyle = disableButton? : '';
     const shortDesc = item.description.substring(0, 100) + " ..."; 
+
     return (
                 <li className="inline-block w-1/5 px-4 my-6 h-52 ">
                     <span className="block h-2/3">

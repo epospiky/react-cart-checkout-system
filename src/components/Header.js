@@ -13,7 +13,11 @@ const Header = () => {
                     <Link to="/"><h1 className="font-bold text-2xl">U-Mall</h1></Link>
                 </li>
                 <li className=" text-3xl">
-    <Link to="/cart"><span className="fa fa-shopping-cart relative"><sup className="text-sm bg-black text-white px-2 py rounded-full  absolute -right-3">{cart.length}</sup></span></Link>
+                    <Link to="/cart">
+                        <span className="fa fa-shopping-cart relative">
+                            <sup className="text-sm bg-black text-white px-2 py rounded-full  absolute -right-3">{cart.length}</sup>
+                        </span>
+                    </Link>
                 </li>
             </ul>
         </header>
