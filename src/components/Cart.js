@@ -3,7 +3,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import {GlobalContext} from '../context/GlobalState';
 
 const Cart = () => {
-    const [options, setOptions] = useState();
+    const [options, setOptions] = useState(1);
 
     const {cart, removeItem, clearCart} = useContext(GlobalContext);
     const itemCount = cart.length > 1? ' items': ' item';

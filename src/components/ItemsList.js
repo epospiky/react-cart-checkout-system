@@ -42,7 +42,7 @@ const ItemsList = ({item}) => {
           <Category checkId={checkId}/>
         <ul className="w-full px-8">
         {
-            catId?filtered.map(item=>( <Item key={item.id} item={item}  />)) : items.map(item=>( <Item key={item.id} item={item}  />)) 
+            catId.length>1?filtered.map(item=>( <Item key={item.id} item={item}  />)) : items.map(item=>( <Item key={item.id} item={item}  />)) 
           } 
         </ul>  
       </div>
